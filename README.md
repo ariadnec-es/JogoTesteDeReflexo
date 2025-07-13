@@ -5,7 +5,7 @@ O projeto foi desenvolvido por Ariadne Silva, Arthur Queiroz e César Miranda
 O projeto visa desenvolver em um sistema digital embarcado um jogo chamado Jogo de Reflexo, com objetivo de testar a resposta de um usuário diante de um estímulo visual, aliada a recursos de temporização para controlar as etapas do teste: espera aleatória, sinal de resposta, detecção de tempo de reação e exibição dos resultados. O sistema é desenvolvido em linguagem VHDL e implementado na plataforma DE2(Cyclone II). Sua aplicação é utilizada em áreas de psicologia experimental, testes psicotécnicos, treinamento esportivo e reabilitação motora, oferecendo também uma base didática para ensino de lógica digital.
 
 <p align="center">
-  <img src="./imagem0.jpg" alt="Capa"><br>
+  <img src="./imagem0.jpeg" alt="Capa"><br>
 </p>
 
 ## 1. INTRODUÇÃO 
