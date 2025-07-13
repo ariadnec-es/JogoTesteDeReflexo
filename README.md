@@ -1,7 +1,7 @@
 O projeto foi desenvolvido por Ariadne Silva, Arthur Queiroz e César Miranda
 
 # Jogo Teste de Reflexo
-O projeto visa desenvolver em um sistema digital embarcado um jogo chamado Jogo de Reflexo, com objetivo de testar a resposta de um usuário diante de um estímulo visual, aliada a recursos de temporização para controlar as etapas do teste: espera aleatória, sinal de resposta, detecção de tempo de reação e exibição dos resultados. O sistema é desenvolvido em linguagem VHDL e implementado na plataforma DE2(Cyclone II). Sua aplicação é utilizada em áreas de psicologia experimental, testes psicotécnicos, treinamento esportivo e reabilitação motora, oferecendo também uma base didática para ensino de lógica digital.
+<p align = "justify"> O projeto visa desenvolver em um sistema digital embarcado um jogo chamado Jogo de Reflexo, com objetivo de testar a resposta de um usuário diante de um estímulo visual, aliada a recursos de temporização para controlar as etapas do teste: espera aleatória, sinal de resposta, detecção de tempo de reação e exibição dos resultados. O sistema é desenvolvido em linguagem VHDL e implementado na plataforma DE2(Cyclone II). Sua aplicação é utilizada em áreas de psicologia experimental, testes psicotécnicos, treinamento esportivo e reabilitação motora, oferecendo também uma base didática para ensino de lógica digital.</p>
 
 <p align="center">
   <img src="./Imagem0.jpeg" alt="Capa"><br>
@@ -9,18 +9,18 @@ O projeto visa desenvolver em um sistema digital embarcado um jogo chamado Jogo 
 
 ## 1. INTRODUÇÃO 
 
-Neste relatório, iremos detalhar os requisitos técnicos, a escolha dos componentes, a estrutura de funcionamento e os resultados obtidos com a simulação do sistema. O projeto tem como foco o desenvolvimento de um Jogo de Reflexo, implementado em linguagem VHDL e executado na plataforma DE2 (FPGA Cyclone II), que visa testar a reação de um usuário diante de um estímulo visual. 
+<p align = "justify"> Neste relatório, iremos detalhar os requisitos técnicos, a escolha dos componentes, a estrutura de funcionamento e os resultados obtidos com a simulação do sistema. O projeto tem como foco o desenvolvimento de um Jogo de Reflexo, implementado em linguagem VHDL e executado na plataforma DE2 (FPGA Cyclone II), que visa testar a reação de um usuário diante de um estímulo visual. </p>
 
-Esse tipo de aplicação é relevante em contextos como treinamentos cognitivos, testes psicotécnicos, exercícios de coordenação motora e ambientes educacionais, além de proporcionar uma oportunidade prática para consolidar conhecimentos em sistemas digitais embarcados. A implementação utiliza recursos fundamentais da placa DE2, incluindo botões (KEYs), switches (SWs), LEDs e displays de 7 segmentos. O controle do sistema é realizado por meio de uma FSM com cinco estados principais (IDLE, WAITING, GO, SUCCESS e SHOW), onde o tempo de espera e a janela de reação são controlados por contadores baseados no clock de 45 MHz da placa. Um gerador de número pseudo aleatório (baseado em LFSR) é utilizado para variar dinamicamente o tempo de espera, proporcionando imprevisibilidade ao teste de reflexo. As interações com o usuário ocorrem por meio de botões de start, resposta e reset, enquanto os LEDs indicam o estado atual do jogo. Os resultados são apresentados nos displays e por meio de sinais visuais, promovendo uma experiência interativa e didática. 
+<p align = "justify"> Esse tipo de aplicação é relevante em contextos como treinamentos cognitivos, testes psicotécnicos, exercícios de coordenação motora e ambientes educacionais, além de proporcionar uma oportunidade prática para consolidar conhecimentos em sistemas digitais embarcados. A implementação utiliza recursos fundamentais da placa DE2, incluindo botões (KEYs), switches (SWs), LEDs e displays de 7 segmentos. O controle do sistema é realizado por meio de uma FSM com cinco estados principais (IDLE, WAITING, GO, SUCCESS e SHOW), onde o tempo de espera e a janela de reação são controlados por contadores baseados no clock de 45 MHz da placa. Um gerador de número pseudo aleatório (baseado em LFSR) é utilizado para variar dinamicamente o tempo de espera, proporcionando imprevisibilidade ao teste de reflexo. As interações com o usuário ocorrem por meio de botões de start, resposta e reset, enquanto os LEDs indicam o estado atual do jogo. Os resultados são apresentados nos displays e por meio de sinais visuais, promovendo uma experiência interativa e didática. </p>
 
-Serão detalhados os requisitos técnicos, a arquitetura do sistema, o funcionamento da lógica de controle, a montagem na placa e os testes realizados por simulação e validação prática. A escolha deste projeto se justifica pela capacidade de integrar múltiplos componentes da FPGA de forma coesa, evidenciando sua aplicabilidade tanto acadêmica quanto funcional. 
+<p align = "justify"> Serão detalhados os requisitos técnicos, a arquitetura do sistema, o funcionamento da lógica de controle, a montagem na placa e os testes realizados por simulação e validação prática. A escolha deste projeto se justifica pela capacidade de integrar múltiplos componentes da FPGA de forma coesa, evidenciando sua aplicabilidade tanto acadêmica quanto funcional. </p>
 
 ## 2. DESENVOLVIMENTO 
 
-Apresentaremos os principais elementos envolvidos no desenvolvimento do projeto Jogo de Reflexo. Isso inclui os requisitos técnicos, a montagem na plataforma DE2, a lógica de funcionamento representada por um fluxograma, além da codificação realizada em linguagem VHDL. 
+<p align = "justify"> Apresentaremos os principais elementos envolvidos no desenvolvimento do projeto Jogo de Reflexo. Isso inclui os requisitos técnicos, a montagem na plataforma DE2, a lógica de funcionamento representada por um fluxograma, além da codificação realizada em linguagem VHDL. </p>
 
 ### 2.1 Requisitos Técnicos 
-O projeto foi desenvolvido de acordo com os requisitos estabelecidos pela disciplina de Sistemas Embarcados, sendo todos eles devidamente atendidos e usando em uma FPGA Cyclone II EP2C35F672C6 como hardware principal. Abaixo estão os itens obrigatórios e como eles foram implementados.
+<p align = "justify"> O projeto foi desenvolvido de acordo com os requisitos estabelecidos pela disciplina de Sistemas Embarcados, sendo todos eles devidamente atendidos e usando em uma FPGA Cyclone II EP2C35F672C6 como hardware principal. Abaixo estão os itens obrigatórios e como eles foram implementados. </p>
 
 <p align="center">Tabela 01 – Itens de Entradas Digitais e Comportamentos Lógicos
 </p>
@@ -30,7 +30,7 @@ O projeto foi desenvolvido de acordo com os requisitos estabelecidos pela discip
 </p>
 <p align="center"><em>Fonte: Elaborada pelos autores.</em></p>
 
-Foram utilizados 2 displays de 7 segmentos para realizar a contagem de acertos, também implementamos uma lógica com máquinas de estados finita(FSM), com cinco estados: IDLE, WATITING, GO, SUCESS e SHOW. 
+<p align = "justify"> Foram utilizados 2 displays de 7 segmentos para realizar a contagem de acertos, também implementamos uma lógica com máquinas de estados finita(FSM), com cinco estados: IDLE, WATITING, GO, SUCESS e SHOW. </p>
 
 <p align="center">Figura 01 - Ilustração do funcionamento da Máquina de Estados Finitos
 </p>
@@ -40,7 +40,7 @@ Foram utilizados 2 displays de 7 segmentos para realizar a contagem de acertos, 
 </p>
 <p align="center"><em>Fonte: Elaborada pelos autores.</em></p>
 
-A simulação foi realizada no Quartus para verificação das transições dos estados. Além disso, foram coletados requisitos mínimos para criação desse projeto, após a execução do VHDL.
+<p align = "justify"> A simulação foi realizada no Quartus para verificação das transições dos estados. Além disso, foram coletados requisitos mínimos para criação desse projeto, após a execução do VHDL. </p>
 
 <p align="center">Figura 02 - Elementos Lógicos e Flip Flops
 </p>
@@ -50,7 +50,7 @@ A simulação foi realizada no Quartus para verificação das transições dos e
 </p>
 <p align="center"><em>Fonte: Produzido no Quartus II.</em></p>
 
-A síntese e o mapeamento do projeto no software Quartus resultaram no uso dos seguintes recursos de hardware do FPGA:
+<p align = "justify"> A síntese e o mapeamento do projeto no software Quartus resultaram no uso dos seguintes recursos de hardware do FPGA: </p>
 
 ● Células Lógicas (Logic Cells): 
 O projeto utilizou um total de 293 célulaslógicas. Essas células lógicas são os blocos fundamentais do FPGA usados para implementar funções lógicas combinacionais (como as portas AND, OR, XOR) e sequenciais (registradores).
@@ -94,7 +94,7 @@ Subtraindo os recursos consumidos pelos módulos aritméticos inferidos, conclui
 </p>
 <p align="center"><em>Fonte: Produzido no Quartus II.</em></p>
 
-Para realizar uma análise de tempo (timing analysis) precisa, foi criada uma restrição de design (através de um arquivo SDC) para informar ao software a frequência de operação do sistema. A primeira tabela demonstra essa configuração:
+<p align = "justify"> Para realizar uma análise de tempo (timing analysis) precisa, foi criada uma restrição de design (através de um arquivo SDC) para informar ao software a frequência de operação do sistema. A primeira tabela demonstra essa configuração: </p>
 
 ● Foi definido um clock base chamado clk com uma frequência alvo de 45.0 MHz, correspondente ao clock de entrada da placa FPGA.
 
@@ -109,13 +109,13 @@ Para realizar uma análise de tempo (timing analysis) precisa, foi criada uma re
 <p align="center"><em>Fonte: Produzido no Quartus II.</em></p>
 
 
-A tabela 'Slow Model Fmax Summary' apresenta a frequência máxima de operação (f_max) calculada para o projeto. O resultado foi obtido sob o 'Slow Model', que simula as piores condições de operação (tensão mais baixa e temperatura mais alta), garantindo a robustez do projeto.
+<p align = "justify"> A tabela 'Slow Model Fmax Summary' apresenta a frequência máxima de operação (f_max) calculada para o projeto. O resultado foi obtido sob o 'Slow Model', que simula as piores condições de operação (tensão mais baixa e temperatura mais alta), garantindo a robustez do projeto.</p>
 
 ● A f_max calculada para o domínio de clock clk foi de 133.12 MHz.
 
-A análise de tempo do projeto resultou em uma frequência máxima de operação (f_max) de 133.12 MHz. Comparando este resultado com a frequência alvo do sistema, que é de 45 MHz, conclui-se que o projeto atende e excede os requisitos de tempo com uma margem de segurança considerável.
+<p align = "justify"> A análise de tempo do projeto resultou em uma frequência máxima de operação (f_max) de 133.12 MHz. Comparando este resultado com a frequência alvo do sistema, que é de 45 MHz, conclui-se que o projeto atende e excede os requisitos de tempo com uma margem de segurança considerável. </p>
 
-A f_max obtida é aproximadamente 2.95 vezes superior à frequência necessária (133.12 / 45). Isso indica que não existem caminhos de dados críticos que limitem o desempenho do circuito e que o design é robusto do ponto de vista de tempo, operando de forma confiável na frequência desejada sem violações de timing (setup time).
+<p align = "justify"> A f_max obtida é aproximadamente 2.95 vezes superior à frequência necessária (133.12 / 45). Isso indica que não existem caminhos de dados críticos que limitem o desempenho do circuito e que o design é robusto do ponto de vista de tempo, operando de forma confiável na frequência desejada sem violações de timing (setup time). </p>
 
 <p align="center">Figura 06 - Latência
 </p>
@@ -125,9 +125,9 @@ A f_max obtida é aproximadamente 2.95 vezes superior à frequência necessária
 </p>
 <p align="center"><em>Fonte: Produzido no Quartus II.</em></p>
 
-A imagem acima apresenta um relatório detalhado de tempo (Report Timing) para um caminho crítico específico no design. O caminho analisado origina-se no oitavo bit do registrador do contador de espera (wait_count[8]) e termina no registrador da máquina de estados (state.WAITING).
+<p align = "justify"> A imagem acima apresenta um relatório detalhado de tempo (Report Timing) para um caminho crítico específico no design. O caminho analisado origina-se no oitavo bit do registrador do contador de espera (wait_count[8]) e termina no registrador da máquina de estados (state.WAITING).</p>
 
-Este caminho é fundamental para a lógica do jogo, pois faz parte do circuito que compara o valor do contador com o tempo de espera alvo para decidir se deve ou não transitar para o próximo estado.
+<p align = "justify"> Este caminho é fundamental para a lógica do jogo, pois faz parte do circuito que compara o valor do contador com o tempo de espera alvo para decidir se deve ou não transitar para o próximo estado.</p>
 
 Segundo a imagem:
 ● **Data Delay:** 7.533 ns
@@ -143,7 +143,7 @@ e chegar até a entrada do flip-flop de destino (state.WAITING).
 
 ● **Folga de Tempo (Setup Slack):** O valor do "Setup Slack" foi de +14.710 ns. O slack é a diferença entre o tempo que o sinal precisava para chegar (o "orçamento") e o tempo que ele realmente levou. Um valor positivo é excelente e significa que o requisito de tempo foi atendido com uma grande margem de segurança. O sinal chegou ao seu destino 14.710 ns antes do prazo final.
 
-Em conclusão, a análise de tempo detalhada para um caminho crítico representativo do projeto demonstra uma latência de propagação interna de 7.533 ns. Como este valor é significativamente inferior ao período do clock (22.222 ns), o design opera de forma robusta e livre de erros de tempo. A folga de tempo (slack) positiva de 14.710 ns confirma que o circuito atende às especificações com uma excelente margem de segurança, o que corrobora a alta frequência máxima (f_max) de 133.12 MHz calculada anteriormente. Isso garante que, na frequência de operação de 45 MHz, o sistema é estável e confiável.
+<p align = "justify"> Em conclusão, a análise de tempo detalhada para um caminho crítico representativo do projeto demonstra uma latência de propagação interna de 7.533 ns. Como este valor é significativamente inferior ao período do clock (22.222 ns), o design opera de forma robusta e livre de erros de tempo. A folga de tempo (slack) positiva de 14.710 ns confirma que o circuito atende às especificações com uma excelente margem de segurança, o que corrobora a alta frequência máxima (f_max) de 133.12 MHz calculada anteriormente. Isso garante que, na frequência de operação de 45 MHz, o sistema é estável e confiável.</p>
 
 ### 2.2 Montagem do circuito
 A montagem do circuito foi realizada utilizando os recursos disponíveis na placa DE2, utilizando os seguintes pinos e recursos:
@@ -156,11 +156,11 @@ A montagem do circuito foi realizada utilizando os recursos disponíveis na plac
 </p>
 <p align="center"><em>Fonte: Produzido no Quartus II.</em></p>
 
-A configuração dos pinos foi realizada no arquivo de pinagem (.qsf) no Quartus, associando os sinais VHDL aos elementos da placa FPGA.
+<p align = "justify"> A configuração dos pinos foi realizada no arquivo de pinagem (.qsf) no Quartus, associando os sinais VHDL aos elementos da placa FPGA.</p>
 
 ### 2.3 Funcionamento do circuito
 
-Para compreender de forma clara a lógica sequencial que rege o comportamento do sistema, apresenta-se na Figura 01 o fluxograma do processo de funcionamento do circuito. Esse fluxograma demonstra como se dá o processo de funcionamento do circuito, estados do sistema e as transições entre eles, desde a inicialização até a exibição do resultado final.
+<p align = "justify"> Para compreender de forma clara a lógica sequencial que rege o comportamento do sistema, apresenta-se na Figura 01 o fluxograma do processo de funcionamento do circuito. Esse fluxograma demonstra como se dá o processo de funcionamento do circuito, estados do sistema e as transições entre eles, desde a inicialização até a exibição do resultado final. </p>
 
 <p align="center">Figura 07 - Fluxograma do processo de funcionamento
 </p>
@@ -409,7 +409,7 @@ segmentos.
 do jogo (⌈log2(5)⌉=3).
 
 ## 3. RESULTADOS ESPERADOS
-Espera-se com esse relatório, a viabilização e o desenvolvimento de um sistema que seja capaz de conduzir, de forma precisa e confiável, testes de tempo de reação do usuário a partir de estímulos visuais, vindo através de acendimentos aleatórios de LEDs controlados por uma lógica digital, feitas em VHDL. O funcionamento do projeto, diz-se de forma correta quando ele fizer a transição adequada entre os estados da máquina de estados finitos (FSM), na geração de intervalos de espera aleatórios antes do estímulo, na detecção eficaz da resposta do usuário por meio dos botões de entrada e a medição do tempo de reação demonstrados no display de 7 segmentos, no qual espera-se que informe feedbacks visuais claros e coerentes com o estado atual do sistema. A simulação do projeto foi feita também no waveforms, utilizando do conceito de tabela verdade para ajudar na compreensão e comprovar o funcionamento correto do sistema. Está simulação foi precisou de algumas adaptações para que fosse possível realizá-la.
+<p align = "justify"> Espera-se com esse relatório, a viabilização e o desenvolvimento de um sistema que seja capaz de conduzir, de forma precisa e confiável, testes de tempo de reação do usuário a partir de estímulos visuais, vindo através de acendimentos aleatórios de LEDs controlados por uma lógica digital, feitas em VHDL. O funcionamento do projeto, diz-se de forma correta quando ele fizer a transição adequada entre os estados da máquina de estados finitos (FSM), na geração de intervalos de espera aleatórios antes do estímulo, na detecção eficaz da resposta do usuário por meio dos botões de entrada e a medição do tempo de reação demonstrados no display de 7 segmentos, no qual espera-se que informe feedbacks visuais claros e coerentes com o estado atual do sistema. A simulação do projeto foi feita também no waveforms, utilizando do conceito de tabela verdade para ajudar na compreensão e comprovar o funcionamento correto do sistema. Está simulação foi precisou de algumas adaptações para que fosse possível realizá-la.</p>
 
 Estados:
 
